@@ -1,0 +1,4 @@
+name: bnotify
+main: io.ivy.bnotify
+version: 0.0.1
+author: unclebugsy
