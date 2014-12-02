@@ -10,12 +10,12 @@ import net.md_5.bungee.event.EventHandler;
 public class bnotifyListener extends Plugin implements Listener {
     @EventHandler
     public void onServerConnected(final ServerConnectedEvent event) {
-        String name = event.getServer().getInfo().getName();
+        String name = event.getPlayer().getName();
         
-        for (ProxiedPlayer target : getProxy().getPlayers()) {
-        	if (!name.equals(target.getName())) {
-        		target.sendMessage( new ComponentBuilder(name + " connected.").create());
+        getProxy().getPlayers().stream().forEach( (player) -> {
+        	if (!name.equals(player.getName())) {
+        		player.sendMessage( new ComponentBuilder(name + " connected.").create());
         	}
-        }
+        });
     }
 }
